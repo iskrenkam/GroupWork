@@ -1,6 +1,7 @@
 package Tests;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.an.E;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -25,7 +26,6 @@ public class SignInDefs {
         homepage.goTo();
         homepage.navigateToSignInPage();
         SignInPage.clickCreateAnAccount();
-
 
 
     }
@@ -59,18 +59,27 @@ public class SignInDefs {
 
     @Given("I have navigated to the login page")
     public void iHaveNavigatedToTheLoginPage() {
+        homepage.goTo();
+        homepage.navigateToSignInPage();
     }
 
     @When("I input valid details")
-    public void iInputValidDetails() {
+    public void iInputValidDetails(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        String Email = data.get("Email");
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
+        String Password = data.get("Password");
+        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
     }
 
     @And("Hit Enter")
     public void hitEnter() {
+        basePage.waitAndClick(By.cssSelector("button[type=\"submit\"]"));
     }
 
     @Then("I am logged in successfully")
     public void iAmLoggedInSuccessfully() {
+        driverFactory.close();
     }
 }
 
