@@ -6,7 +6,6 @@ import pageObjects.CreateNewAccountPage;
 import pageObjects.HomePage;
 import pageObjects.ShoppingCartPage;
 import pageObjects.SignInPage;
-
 import java.util.Random;
 
 import static Tests.TestSuite.driverFactory;
