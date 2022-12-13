@@ -1,6 +1,7 @@
 package Tests;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.an.E;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.BasePage;
 import pageObjects.HomePage;
+import pageObjects.SignInPage;
 
 import java.util.Map;
 
@@ -17,14 +19,16 @@ public class SignInDefs {
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
+    private SignInPage SignInPage = new SignInPage(driver);
 
     @Given("I have navigated to the create an account page")
-        public void IHaveNavigatedToTheCreateAnAccountPage(){
-            homepage.goTo();
+    public void IHaveNavigatedToTheCreateAnAccountPage() {
+        homepage.goTo();
         homepage.navigateToSignInPage();
+        SignInPage.clickCreateAnAccount();
 
 
-        }
+    }
 
     @When("I enter valid details")
     public void iEnterValidDetails(DataTable dataTable) {
@@ -49,22 +53,33 @@ public class SignInDefs {
 
     @Then("An account is created and I am logged in")
     public void anAccountIsCreatedAndIAmLoggedIn() {
+
+        driverFactory.close();
     }
 
     @Given("I have navigated to the login page")
     public void iHaveNavigatedToTheLoginPage() {
+        homepage.goTo();
+        homepage.navigateToSignInPage();
     }
 
     @When("I input valid details")
-    public void iInputValidDetails() {
+    public void iInputValidDetails(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        String Email = data.get("Email");
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
+        String Password = data.get("Password");
+        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
     }
 
     @And("Hit Enter")
     public void hitEnter() {
+        basePage.waitAndClick(By.cssSelector("button[type=\"submit\"]"));
     }
 
     @Then("I am logged in successfully")
     public void iAmLoggedInSuccessfully() {
+        driverFactory.close();
     }
 }
-}
+
