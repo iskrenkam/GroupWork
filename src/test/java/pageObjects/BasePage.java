@@ -13,18 +13,18 @@ import java.time.Duration;
 /**
  * Created by jack.forman on 16/10/2016.
  */
-abstract class BasePage {
+public class BasePage {
 
 
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    void waitAndClick(By selector) {
+    public void waitAndClick(By selector) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(selector));
         element.click();
     }
