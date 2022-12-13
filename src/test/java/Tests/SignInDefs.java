@@ -81,5 +81,41 @@ public class SignInDefs {
     public void iAmLoggedInSuccessfully() {
         driverFactory.close();
     }
+
+    @When("I input invalid details")
+    public void iInputInvalidDetails(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        String Email = data.get("Email");
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
+        String Password = data.get("Password");
+        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
+    }
+
+    @Then("I am not logged in")
+    public void iAmNotLoggedIn() {
+
+        driverFactory.close();
+    }
+
+    @Then("An account is not created")
+    public void anAccountIsNotCreated() {
+
+        driverFactory.close();
+    }
+
+    @When("I input bad details")
+    public void iInputBadDetails(DataTable dataTable) {
+        Map<String, String> data = dataTable.asMap(String.class, String.class);
+        String FirstName = data.get("First Name");
+        driver.findElement(By.cssSelector("input[name=\"firstname\"]")).sendKeys(FirstName);
+        String LastName = data.get("Last Name");
+        driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
+        String Email = data.get("Email");
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
+        String Password = data.get("Password");
+        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
+        String Birthday = data.get("Birthdate");
+        driver.findElement(By.cssSelector("input[name=\"birthday\"]")).sendKeys(Birthday);
+    }
 }
 
