@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageObjects.BasePage;
 import pageObjects.HomePage;
+import pageObjects.SignInPage;
 
 import java.util.Map;
 
@@ -17,14 +18,17 @@ public class SignInDefs {
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
+    private SignInPage SignInPage = new SignInPage(driver);
 
     @Given("I have navigated to the create an account page")
-        public void IHaveNavigatedToTheCreateAnAccountPage(){
-            homepage.goTo();
+    public void IHaveNavigatedToTheCreateAnAccountPage() {
+        homepage.goTo();
         homepage.navigateToSignInPage();
+        SignInPage.clickCreateAnAccount();
 
 
-        }
+
+    }
 
     @When("I enter valid details")
     public void iEnterValidDetails(DataTable dataTable) {
@@ -49,6 +53,8 @@ public class SignInDefs {
 
     @Then("An account is created and I am logged in")
     public void anAccountIsCreatedAndIAmLoggedIn() {
+
+        driverFactory.close();
     }
 
     @Given("I have navigated to the login page")
@@ -67,4 +73,4 @@ public class SignInDefs {
     public void iAmLoggedInSuccessfully() {
     }
 }
-}
+
