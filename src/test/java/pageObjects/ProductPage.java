@@ -37,42 +37,42 @@ public class ProductPage extends BasePage {
     }
 
 
-
-    public void itemSizeSelected(String a){
+    public void itemSizeSelected(String a) {
         selectValueFromDropDown(PRODUCT_SIZE, a);
     }
 
-    public void quantitySelected(String a){
+    public void quantitySelected(String a) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(PRODUCT_QUANTITY).clear();
         findAndType(PRODUCT_QUANTITY, a);
     }
 
-    public void altColourSelected(){
+    public void altColourSelected() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(SELECT_ALTERNATIVE_COLOR_CHOICE_BUTTON));
         waitAndClick(SELECT_ALTERNATIVE_COLOR_CHOICE_BUTTON);
     }
 
-    public void primaryColourSelected(){
+    public void primaryColourSelected() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(SELECT_Primary_COLOR_CHOICE_BUTTON));
         waitAndClick(SELECT_Primary_COLOR_CHOICE_BUTTON);
     }
 
-    public String productName(){
+    public String productName() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(PRODUCT_LABEL));
         return new String(driver.findElement(PRODUCT_LABEL).getText());
     }
 
-    public String itemAvailable(){
+    public String itemAvailable() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(PRODUCT_LABEL));
         return new String(driver.findElement(IS_PRODUCT_IN_STOCK).getText());
     }
-    public String altColorChosen(){
+
+    public String altColorChosen() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(PRODUCT_LABEL));
         return new String(driver.findElement(SELECT_ALTERNATIVE_COLOR_CHOICE).getText());
     }
 
-    public String primaryColorChosen(){
+    public String primaryColorChosen() {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(PRODUCT_LABEL));
         return new String(driver.findElement(SELECT_Primary_COLOR_CHOICE).getText());
     }
@@ -82,9 +82,6 @@ public class ProductPage extends BasePage {
         String itemDisplayed = driver.findElement(PRODUCT_LABEL).getText().toLowerCase();
         Assert.assertTrue(productSelected.toLowerCase().equals(itemDisplayed.toLowerCase()));
     }
-
-
-
 
 
 }
