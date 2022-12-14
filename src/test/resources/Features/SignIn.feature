@@ -22,7 +22,7 @@ Feature: Sign in function
     Then I am logged in successfully
 
   @InvalidSignIn
-  Scenario: Attept to login with invalid information
+  Scenario: Attempt to login with invalid information
     Given I have navigated to the login page
     When I input invalid details
       | Email    | Test@test |
@@ -37,7 +37,7 @@ Feature: Sign in function
       | First Name | 6666    |
       | Last Name  | 44444   |
       | Email      | Test    |
-      | Password   | o       |
-      | Birthdate  | 11/11/1 |
+      | Password   | 00oo    |
+      | Birthdate  | 10/01/1 |
     And Hit Enter
     Then An account is not created
