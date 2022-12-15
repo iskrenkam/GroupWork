@@ -1,3 +1,4 @@
+@AUT-4
 Feature: Create Account
 
   @CreateAccount
@@ -6,7 +7,7 @@ Feature: Create Account
     When I enter details
       | First Name | Test                     |
       | Last Name  | Tester                   |
-      | Email      | Test@Test1111111Test.com |
+      | Email      | 1Test@TestTest.com |
       | Password   | Test1234                 |
       | Birthdate  | 11/11/1111               |
     And Hit Save

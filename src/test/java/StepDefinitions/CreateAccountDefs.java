@@ -28,6 +28,7 @@ public class CreateAccountDefs {
         homepage.navigateToSignInPage();
         SignInPage.clickCreateAnAccount();
     }
+
     @When("I enter details")
     public void iEnterValidDetails(DataTable dataTable) {
         Map<String, String> data = dataTable.asMap(String.class, String.class);
@@ -47,18 +48,20 @@ public class CreateAccountDefs {
     public void hitSave() {
         basePage.waitAndClick(By.xpath("//footer/button[@class='btn btn-primary form-control-submit float-xs-right']"));
     }
+
     @Then("An account is created and I am logged in")
     public void anAccountIsCreatedAndIAmLoggedIn() {
-        SignInPage.Verify("//div/a[@class='logout hidden-sm-down']","Sign out");
+        SignInPage.Verify("//div/a[@class='logout hidden-sm-down']", "Sign out");
         driverFactory.close();
 
     }
+
     @Then("An account is not created")
     public void anAccountIsNotCreated() {
-        SignInPage.Verify("//header/h1","Create an account");
+        SignInPage.Verify("//header/h1", "Create an account");
         driverFactory.close();
     }
 
 
-    }
+}
 
