@@ -4,6 +4,7 @@ import Util.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 
 public class Hooks {
 
@@ -13,10 +14,8 @@ public class Hooks {
     public void before(){
         System.out.println("Starting Test");
     }
-    @After
-    @AfterAll
-    public void afterAll(){
+   @After
+    public void after(){
         driverFactory.close();
     }
-
 }
