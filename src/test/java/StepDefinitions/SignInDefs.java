@@ -45,21 +45,21 @@ public class SignInDefs {
 
     @Then("I am logged in successfully")
     public void iAmLoggedInSuccessfully() {
-        SignInPage.Verify("//header/h1","Your account");
+        SignInPage.Verify("//header/h1", "Your account");
         driverFactory.close();
     }
 
 
     @Then("I am not logged in")
     public void iAmNotLoggedIn() {
-        SignInPage.Verify("//header/h1","Log in to your account");
+        SignInPage.Verify("//header/h1", "Log in to your account");
         driverFactory.close();
     }
 
     @Then("An error message appears")
     public void anErrorMessageAppears() {
-       SignInPage.Verify("//header/h1","Log in to your account");
-       driverFactory.close();
+        SignInPage.Verify("//header/h1", "Log in to your account");
+        driverFactory.close();
     }
 }
 
