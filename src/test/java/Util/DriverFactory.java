@@ -1,4 +1,4 @@
-package Tests;
+package Util;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -26,4 +26,11 @@ public class DriverFactory {
     public void close(){
         driver.quit();
     }
+
+    public void quitDriver(){
+
+        driver.quit();
+        driver = null;
+    }
+
 }
