@@ -1,15 +1,16 @@
 @AUT-4
 Feature: Create Account
 
+
   @CreateAccount
   Scenario: Creating Account
     Given I have navigated to the create an account page
     When I enter details
-      | First Name | Test                     |
-      | Last Name  | Tester                   |
-      | Email      | 11Test@TestTest.com |
-      | Password   | Test1234                 |
-      | Birthdate  | 11/11/1111               |
+      | First Name | Test          |
+      | Last Name  | Tester        |
+      | Email      | @TestTest.com |
+      | Password   | Test1234      |
+      | Birthdate  | 11/11/1111    |
     And Hit Save
     Then An account is created and I am logged in
 

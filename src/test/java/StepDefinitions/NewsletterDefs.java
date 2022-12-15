@@ -11,12 +11,17 @@ import pageObjects.BasePage;
 import pageObjects.HomePage;
 import pageObjects.SignInPage;
 
+import java.util.Random;
+
 public class NewsletterDefs {
     DriverFactory driverFactory = new DriverFactory();
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
     private pageObjects.SignInPage SignInPage = new SignInPage(driver);
+
+    Random rand = new Random();
+    String emailend = "@ten10.com";
 
     @Given("I have navigated to the HomePage")
     public void IHaveNavigatedToTheHomePage() {
@@ -26,7 +31,7 @@ public class NewsletterDefs {
 
     @When("I input email into newsletter")
     public void iInputEmailIntoNewsletter() {
-        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys("1TestTest@Test.com");
+        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys(rand + emailend);
     }
 
     @And("Hit Subscribe")

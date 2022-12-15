@@ -13,6 +13,7 @@ import pageObjects.HomePage;
 import pageObjects.SignInPage;
 
 import java.util.Map;
+import java.util.Random;
 
 public class CreateAccountDefs {
 
@@ -21,6 +22,8 @@ public class CreateAccountDefs {
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
     private SignInPage SignInPage = new SignInPage(driver);
+
+    Random rand = new Random();
 
     @Given("I have navigated to the create an account page")
     public void IHaveNavigatedToTheCreateAnAccountPage() {
@@ -37,7 +40,7 @@ public class CreateAccountDefs {
         String LastName = data.get("Last Name");
         driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
         String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(rand + Email);
         String Password = data.get("Password");
         driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
         String Birthday = data.get("Birthdate");
