@@ -1,6 +1,5 @@
+@AUT-4
 Feature: Sign in function
-
-
 
   @SignIn
   Scenario: Logging in with valid details
@@ -21,8 +20,8 @@ Feature: Sign in function
     Then I am not logged in
 
 
-    @emptyFields
-    Scenario: Attempt to login with empty fields
-      Given I have navigated to the login page
-      When I hit Enter
-      Then An error message appears
+  @emptyFields
+  Scenario: Attempt to login with empty fields
+    Given I have navigated to the login page
+    When  Hit Enter
+    Then An error message appears
