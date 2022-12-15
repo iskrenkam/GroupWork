@@ -1,5 +1,6 @@
-package Tests;
+package StepDefinitions;
 
+import Tests.DriverFactory;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.an.E;
 import io.cucumber.java.en.And;
