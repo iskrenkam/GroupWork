@@ -4,7 +4,7 @@ Feature: Sign in function
   @SignIn
   Scenario: Logging in with valid details
     Given I have navigated to the login page
-    When I input valid details
+    When I input details
       | Email    | Test@TestTest.com |
       | Password | Test1234          |
     And Hit Enter
@@ -13,7 +13,7 @@ Feature: Sign in function
   @InvalidSignIn
   Scenario: Attempt to login with invalid information
     Given I have navigated to the login page
-    When I input invalid details
+    When I input details
       | Email    | Test@test |
       | Password | idihdw    |
     And Hit Enter
