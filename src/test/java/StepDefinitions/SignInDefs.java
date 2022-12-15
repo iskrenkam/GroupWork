@@ -28,7 +28,7 @@ public class SignInDefs {
         homepage.navigateToSignInPage();
     }
 
-    @When("I input valid details")
+    @When("I input details")
     public void iInputValidDetails(DataTable dataTable) {
         Map<String, String> data = dataTable.asMap(String.class, String.class);
         String Email = data.get("Email");
@@ -48,21 +48,12 @@ public class SignInDefs {
         driverFactory.close();
     }
 
-    @When("I input invalid details")
-    public void iInputInvalidDetails(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-        String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
-        String Password = data.get("Password");
-        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
-    }
 
     @Then("I am not logged in")
     public void iAmNotLoggedIn() {
         SignInPage.Verify("//header/h1","Log in to your account");
         driverFactory.close();
     }
-
 
     @Then("An error message appears")
     public void anErrorMessageAppears() {
