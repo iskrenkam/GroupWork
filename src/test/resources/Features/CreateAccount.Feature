@@ -1,3 +1,5 @@
+Feature: Create Account
+
 @CreateAccount
 Scenario: Creating Account
 Given I have navigated to the create an account page
