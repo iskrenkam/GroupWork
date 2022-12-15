@@ -53,5 +53,10 @@ public class SignInPage extends BasePage {
         Assert.assertTrue(elementIsVisible(alertBox));
     }
 
+    public void Verify(String xpath, String contains) {
+        WebElement header = driver.findElement(By.xpath(xpath));
+        Assert.assertTrue(header.getText().contains(contains));
+        System.out.println("Header is displayed correctly");
 
+    }
 }

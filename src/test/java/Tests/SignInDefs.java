@@ -21,41 +21,6 @@ public class SignInDefs {
     private BasePage basePage = new BasePage(driver);
     private SignInPage SignInPage = new SignInPage(driver);
 
-    @Given("I have navigated to the create an account page")
-    public void IHaveNavigatedToTheCreateAnAccountPage() {
-        homepage.goTo();
-        homepage.navigateToSignInPage();
-        SignInPage.clickCreateAnAccount();
-
-
-    }
-
-    @When("I enter valid details")
-    public void iEnterValidDetails(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-        String FirstName = data.get("First Name");
-        driver.findElement(By.cssSelector("input[name=\"firstname\"]")).sendKeys(FirstName);
-        String LastName = data.get("Last Name");
-        driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
-        String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
-        String Password = data.get("Password");
-        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
-        String Birthday = data.get("Birthdate");
-        driver.findElement(By.cssSelector("input[name=\"birthday\"]")).sendKeys(Birthday);
-    }
-
-
-    @And("Hit Save")
-    public void hitSave() {
-        basePage.waitAndClick(By.cssSelector("button[type=\"submit\"]"));
-    }
-
-    @Then("An account is created and I am logged in")
-    public void anAccountIsCreatedAndIAmLoggedIn() {
-
-        driverFactory.close();
-    }
 
     @Given("I have navigated to the login page")
     public void iHaveNavigatedToTheLoginPage() {
@@ -79,6 +44,7 @@ public class SignInDefs {
 
     @Then("I am logged in successfully")
     public void iAmLoggedInSuccessfully() {
+//        SignInPage.Verify("");
         driverFactory.close();
     }
 
@@ -93,29 +59,10 @@ public class SignInDefs {
 
     @Then("I am not logged in")
     public void iAmNotLoggedIn() {
-
+//        SignInPage.Verify("");
         driverFactory.close();
     }
 
-    @Then("An account is not created")
-    public void anAccountIsNotCreated() {
 
-        driverFactory.close();
-    }
-
-    @When("I input bad details")
-    public void iInputBadDetails(DataTable dataTable) {
-        Map<String, String> data = dataTable.asMap(String.class, String.class);
-        String FirstName = data.get("First Name");
-        driver.findElement(By.cssSelector("input[name=\"firstname\"]")).sendKeys(FirstName);
-        String LastName = data.get("Last Name");
-        driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
-        String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(Email);
-        String Password = data.get("Password");
-        driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
-        String Birthday = data.get("Birthdate");
-        driver.findElement(By.cssSelector("input[name=\"birthday\"]")).sendKeys(Birthday);
-    }
 }
 

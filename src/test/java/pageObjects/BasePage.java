@@ -29,7 +29,7 @@ public class BasePage {
         element.click();
     }
 
-    boolean elementIsVisible(WebElement element) {
+   public boolean elementIsVisible(WebElement element) {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
