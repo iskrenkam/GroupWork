@@ -55,14 +55,14 @@ public class CreateAccountDefs {
     @Then("An account is created and I am logged in")
     public void anAccountIsCreatedAndIAmLoggedIn() {
         SignInPage.Verify("//div/a[@class='logout hidden-sm-down']", "Sign out");
-        driverFactory.close();
+
 
     }
 
     @Then("An account is not created")
     public void anAccountIsNotCreated() {
         SignInPage.Verify("//header/h1", "Create an account");
-        driverFactory.close();
+
     }
 
 

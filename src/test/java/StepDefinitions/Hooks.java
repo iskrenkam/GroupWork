@@ -2,6 +2,7 @@ package StepDefinitions;
 
 import Util.DriverFactory;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 
 public class Hooks {
@@ -10,11 +11,11 @@ public class Hooks {
 
     @Before
     public void before(){
-        driverFactory.getDriver();
+        System.out.println("Starting Test");
     }
-
     @After
-    public void after(){
+    @AfterAll
+    public void afterAll(){
         driverFactory.close();
     }
 
