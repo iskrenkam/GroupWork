@@ -1,16 +1,5 @@
+@AUT-4
 Feature: Sign in function
-
-  @CreateAccount
-  Scenario: Creating Account
-    Given I have navigated to the create an account page
-    When I enter valid details
-      | First Name | Test              |
-      | Last Name  | Tester            |
-      | Email      | Test@TestTest.com |
-      | Password   | Test1234          |
-      | Birthdate  | 11/11/1111        |
-    And Hit Save
-    Then An account is created and I am logged in
 
   @SignIn
   Scenario: Logging in with valid details
@@ -30,14 +19,9 @@ Feature: Sign in function
     And Hit Enter
     Then I am not logged in
 
-  @InvalidCreateAccount
-  Scenario: Attempt create account with bad details
-    Given I have navigated to the create an account page
-    When I input bad details
-      | First Name | 6666    |
-      | Last Name  | 44444   |
-      | Email      | Test    |
-      | Password   | 00oo    |
-      | Birthdate  | 10/01/1 |
-    And Hit Enter
-    Then An account is not created
+
+  @emptyFields
+  Scenario: Attempt to login with empty fields
+    Given I have navigated to the login page
+    When  Hit Enter
+    Then An error message appears
