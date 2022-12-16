@@ -21,6 +21,7 @@ public class ShoppingCartPage extends BasePage {
     private static final By SIZE_LABEL = By.cssSelector("li:nth-child(1) .product-line-grid-body div:nth-of-type(3) .value");
     private static final By COLOR_LABEL = By.cssSelector("li:nth-child(1) .product-line-grid-body div:nth-of-type(4) .value");
     private static final By QUANTITY_CHOSEN_OF_FIRST_ITEM = By.cssSelector("li:first-child .js-cart-line-product-quantity");
+    private static final By SHOPPING_CART_DELETE_BUTTON_OF_FIRST_PRODUCT = By.cssSelector("li:first-child a.remove-from-cart");
 
     public String productInCart(){
         return new String(driver.findElement(PRODUCT_LABEL).getText());
@@ -57,7 +58,7 @@ public class ShoppingCartPage extends BasePage {
     }
 
     public void deleteShoppingCartItem(){
-
+        waitAndClick(SHOPPING_CART_DELETE_BUTTON_OF_FIRST_PRODUCT);
     }
 
 }
