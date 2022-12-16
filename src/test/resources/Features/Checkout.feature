@@ -5,4 +5,4 @@
       Given I have navigated to the checkout page
       And I have one item in the cart
       When I click checkout
-      Then I am successfully checked out
+      Then I have navigated to the Checkout page
