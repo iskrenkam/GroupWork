@@ -18,11 +18,11 @@ public class AddToCartDefs {
 
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
-    private BasePage basePage = new BasePage(driver);
     private ProductPage productPage = new ProductPage(driver);
     private SignInPage SignInPage = new SignInPage(driver);
+
     @Given("I have navigated to an item Page")
-    public void   IHaveNavigatedToAnItemPage() {
+    public void IHaveNavigatedToAnItemPage() {
         homepage.goTo();
         homepage.clickProductThumbnail(2);
 
@@ -36,7 +36,7 @@ public class AddToCartDefs {
 
     @Then("Item is added to cart")
     public void itemIsAddedToCart() {
-        SignInPage.Verify("//div/h4[@class='modal-title h6 text-sm-center']","Product successfully added to your shopping cart");
+        SignInPage.Verify("//div/h4[@class='modal-title h6 text-sm-center']", "Product successfully added to your shopping cart");
 
     }
 }

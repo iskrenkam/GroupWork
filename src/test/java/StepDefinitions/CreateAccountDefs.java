@@ -35,7 +35,7 @@ public class CreateAccountDefs {
 
     @When("I enter details")
     public void iEnterValidDetails(DataTable dataTable) {
-        int randomNumber = new Random().nextInt(99999)+100000;
+        int randomNumber = new Random().nextInt(99999) + 100000;
 
         Map<String, String> data = dataTable.asMap(String.class, String.class);
         String FirstName = data.get("First Name");
@@ -43,7 +43,7 @@ public class CreateAccountDefs {
         String LastName = data.get("Last Name");
         driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
         String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(randomNumber+Email);
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(randomNumber + Email);
         String Password = data.get("Password");
         driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
         String Birthday = data.get("Birthdate");
