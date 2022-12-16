@@ -26,6 +26,9 @@ public class CheckoutDefs {
 
     @Given("I have navigated to the checkout page")
     public void IHaveNavigatedToTheCheckoutPage() {
+        homepage.goTo();
+        homepage.clickProductThumbnail(2);
+        productPage.addProductToCart();
         checkoutPage.navigateToCheckout();
     }
 
