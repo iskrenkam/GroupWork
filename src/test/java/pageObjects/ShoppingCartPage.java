@@ -23,6 +23,8 @@ public class ShoppingCartPage extends BasePage {
     private static final By QUANTITY_CHOSEN_OF_FIRST_ITEM = By.cssSelector("li:first-child .js-cart-line-product-quantity");
     private static final By SHOPPING_CART_DELETE_BUTTON_OF_FIRST_PRODUCT = By.cssSelector("li:first-child a.remove-from-cart");
 
+    private static final By CHECKOUT_BUTTON = By.cssSelector("div.checkout a.btn");
+
     public String productInCart(){
         return new String(driver.findElement(PRODUCT_LABEL).getText());
     }
@@ -61,4 +63,7 @@ public class ShoppingCartPage extends BasePage {
         waitAndClick(SHOPPING_CART_DELETE_BUTTON_OF_FIRST_PRODUCT);
     }
 
+    public void clickCheckOutButton(){
+        waitAndClick(CHECKOUT_BUTTON);
+    }
 }
