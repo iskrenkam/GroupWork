@@ -21,8 +21,7 @@ public class NewsletterDefs {
     private HomePage homepage = new HomePage(driver);
     private pageObjects.SignInPage SignInPage = new SignInPage(driver);
 
-    Random rand = new Random();
-    String emailend = "@ten10.com";
+
 
     @Given("I have navigated to the HomePage")
     public void IHaveNavigatedToTheHomePage() {
@@ -32,7 +31,9 @@ public class NewsletterDefs {
 
     @When("I input email into newsletter")
     public void iInputEmailIntoNewsletter() {
-        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys(rand + emailend);
+        int randomNumber = new Random().nextInt(99999)+100000;
+        String emailend = "@ten10.com";
+        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys(randomNumber+emailend);
     }
 
     @And("Hit Subscribe")
