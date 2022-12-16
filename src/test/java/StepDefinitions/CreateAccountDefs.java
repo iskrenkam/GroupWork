@@ -15,9 +15,10 @@ import pageObjects.SignInPage;
 import java.util.Map;
 import java.util.Random;
 
+import static StepDefinitions.Hooks.driverFactory;
+
 public class CreateAccountDefs {
 
-    DriverFactory driverFactory = new DriverFactory();
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);

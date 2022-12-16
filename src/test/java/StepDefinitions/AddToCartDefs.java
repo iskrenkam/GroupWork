@@ -11,9 +11,11 @@ import pageObjects.HomePage;
 import pageObjects.ProductPage;
 import pageObjects.SignInPage;
 
+import static StepDefinitions.Hooks.driverFactory;
+
 public class AddToCartDefs {
 
-    DriverFactory driverFactory = new DriverFactory();
+
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
