@@ -56,4 +56,8 @@ public class ShoppingCartPage extends BasePage {
         findAndType(QUANTITY_CHOSEN_OF_FIRST_ITEM, a);
     }
 
+    public void deleteShoppingCartItem(){
+
+    }
+
 }
