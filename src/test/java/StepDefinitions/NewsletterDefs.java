@@ -1,17 +1,15 @@
 package StepDefinitions;
 
-import Util.DriverFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import pageObjects.BasePage;
+
 import pageObjects.HomePage;
 import pageObjects.SignInPage;
 
-import java.util.Random;
 
 import static StepDefinitions.Hooks.driverFactory;
 
@@ -21,8 +19,7 @@ public class NewsletterDefs {
     private HomePage homepage = new HomePage(driver);
     private pageObjects.SignInPage SignInPage = new SignInPage(driver);
 
-    int randomNumber = new Random().nextInt(99999)+100000;
-    String emailend = "@ten10.com";
+    String email = "testingTester@ten10.com";
 
     @Given("I have navigated to the HomePage")
     public void IHaveNavigatedToTheHomePage() {
@@ -33,7 +30,7 @@ public class NewsletterDefs {
     @When("I input email into newsletter")
     public void iInputEmailIntoNewsletter() {
 
-        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys(randomNumber+emailend);
+        driver.findElement(By.xpath("//div/input[@name='email']")).sendKeys(email);
     }
 
     @And("Hit Subscribe")
