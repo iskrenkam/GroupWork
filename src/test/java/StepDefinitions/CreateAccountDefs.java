@@ -15,15 +15,16 @@ import pageObjects.SignInPage;
 import java.util.Map;
 import java.util.Random;
 
+import static StepDefinitions.Hooks.driverFactory;
+
 public class CreateAccountDefs {
 
-    DriverFactory driverFactory = new DriverFactory();
+
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);
     private SignInPage SignInPage = new SignInPage(driver);
 
-    Random rand = new Random();
 
     @Given("I have navigated to the create an account page")
     public void IHaveNavigatedToTheCreateAnAccountPage() {
@@ -34,13 +35,15 @@ public class CreateAccountDefs {
 
     @When("I enter details")
     public void iEnterValidDetails(DataTable dataTable) {
+        int randomNumber = new Random().nextInt(99999)+100000;
+
         Map<String, String> data = dataTable.asMap(String.class, String.class);
         String FirstName = data.get("First Name");
         driver.findElement(By.cssSelector("input[name=\"firstname\"]")).sendKeys(FirstName);
         String LastName = data.get("Last Name");
         driver.findElement(By.cssSelector("input[name=\"lastname\"]")).sendKeys(LastName);
         String Email = data.get("Email");
-        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(rand + Email);
+        driver.findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(randomNumber+Email);
         String Password = data.get("Password");
         driver.findElement(By.cssSelector("input[name=\"password\"]")).sendKeys(Password);
         String Birthday = data.get("Birthdate");
