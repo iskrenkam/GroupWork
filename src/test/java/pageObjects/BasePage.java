@@ -29,7 +29,7 @@ public class BasePage {
         element.click();
     }
 
-   public boolean elementIsVisible(WebElement element) {
+    public boolean elementIsVisible(WebElement element) {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
@@ -45,7 +45,7 @@ public class BasePage {
         element.sendKeys(inputString);
     }
 
-    public void selectValueFromDropDown(By selector, String dropDownValue){
+    public void selectValueFromDropDown(By selector, String dropDownValue) {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         Select dropDown = new Select(driver.findElement(selector));
         dropDown.selectByValue(dropDownValue);
