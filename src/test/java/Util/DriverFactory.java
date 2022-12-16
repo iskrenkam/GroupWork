@@ -23,11 +23,12 @@ public class DriverFactory {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
-    public void close(){
+
+    public void close() {
         driver.quit();
     }
 
-    public void quitDriver(){
+    public void quitDriver() {
 
         driver.quit();
         driver = null;

@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import Util.DriverFactory;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,30 +14,30 @@ import pageObjects.SignInPage;
 
 import static StepDefinitions.Hooks.driverFactory;
 
-public class AddToCartDefs {
-
+public class CheckoutDefs {
 
     public WebDriver driver = driverFactory.getDriver();
+
     private HomePage homepage = new HomePage(driver);
+
     private ProductPage productPage = new ProductPage(driver);
+
     private SignInPage SignInPage = new SignInPage(driver);
 
-    @Given("I have navigated to an item Page")
-    public void IHaveNavigatedToAnItemPage() {
-        homepage.goTo();
-        homepage.clickProductThumbnail(2);
+    @Given("I have navigated to the checkout page")
+    public void IHaveNavigatedToTheCheckoutPage() {
 
     }
 
-    @When("I click add to cart")
-    public void iClickAddToCart() {
-        productPage.addProductToCart();
-
+    @And("I have one item in the cart")
+    public void iHaveOneItemInTheCart() {
     }
 
-    @Then("Item is added to cart")
-    public void itemIsAddedToCart() {
-        SignInPage.Verify("//div/h4[@class='modal-title h6 text-sm-center']", "Product successfully added to your shopping cart");
+    @When("I click checkout")
+    public void iClickCheckout() {
+    }
 
+    @Then("I am successfully checked out")
+    public void iAmSuccessfullyCheckedOut() {
     }
 }

@@ -13,13 +13,13 @@ public class Hooks {
     public static DriverFactory driverFactory = new Util.DriverFactory();
 
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Starting Test");
         driverFactory.getDriver();
     }
 
     @After
-    public void after(){
+    public void after() {
         driverFactory.quitDriver();
     }
 }
