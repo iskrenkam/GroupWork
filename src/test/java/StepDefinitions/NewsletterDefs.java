@@ -13,11 +13,12 @@ import pageObjects.SignInPage;
 
 import java.util.Random;
 
+import static StepDefinitions.Hooks.driverFactory;
+
 public class NewsletterDefs {
-    DriverFactory driverFactory = new DriverFactory();
+
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
-    private BasePage basePage = new BasePage(driver);
     private pageObjects.SignInPage SignInPage = new SignInPage(driver);
 
     Random rand = new Random();

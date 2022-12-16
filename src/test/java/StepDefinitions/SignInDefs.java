@@ -14,8 +14,10 @@ import pageObjects.SignInPage;
 
 import java.util.Map;
 
+import static StepDefinitions.Hooks.driverFactory;
+
 public class SignInDefs {
-    DriverFactory driverFactory = new DriverFactory();
+
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
     private BasePage basePage = new BasePage(driver);

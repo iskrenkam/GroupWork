@@ -13,9 +13,10 @@ public class Hooks {
     @Before
     public void before(){
         System.out.println("Starting Test");
+        driverFactory.getDriver();
     }
    @After
     public void after(){
-        driverFactory.close();
+        driverFactory.quitDriver();
     }
 }
