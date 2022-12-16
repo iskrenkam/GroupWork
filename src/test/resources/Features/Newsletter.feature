@@ -13,3 +13,4 @@
         When I input email into newsletter
         And Hit Subscribe
         Then An error message is displayed
+

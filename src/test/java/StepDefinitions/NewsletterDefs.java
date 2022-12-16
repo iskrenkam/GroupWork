@@ -19,7 +19,6 @@ public class NewsletterDefs {
 
     public WebDriver driver = driverFactory.getDriver();
     private HomePage homepage = new HomePage(driver);
-    private BasePage basePage = new BasePage(driver);
     private pageObjects.SignInPage SignInPage = new SignInPage(driver);
 
 
